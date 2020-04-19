@@ -12,6 +12,7 @@ Tous ces défis et activités seront classifiées et présenter en détails dans
 - Littérature : exercices d'écriture de nouvelles courtes
 - Art et Dessin : croquis de design web, dessin crayon/pastel/peinture
 - Découvertes : trouvailles intéressantes de ce confinement
+- Lectures : résumés de mes lectures (mangas, articles scientifiques)
 
 Nul ne sait si la pandémie durera longtemps mais l'énergie créative que j'ai pu voir depuis le confinement devrait être maintenue tout le temps. Ce blog sera le symbole de mon envie d'exploiter cette énergie et de la faire durer.
 
