@@ -17,3 +17,6 @@ Tous ces défis et activités seront classifiées et présenter en détails dans
 Nul ne sait si la pandémie durera longtemps mais l'énergie créative que j'ai pu voir depuis le confinement devrait être maintenue tout le temps. Ce blog sera le symbole de mon envie d'exploiter cette énergie et de la faire durer.
 
 #RestezChezVous
+
+# Notes dev
+- utiliser les regex côté client pour détecter les liens et les images et les afficher correctement à l'écran (idée : mettre une étiquette "##image##" dans le texte)
