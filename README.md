@@ -20,3 +20,4 @@ Nul ne sait si la pandémie durera longtemps mais l'énergie créative que j'ai 
 
 # Notes dev
 - utiliser les regex côté client pour détecter les liens et les images et les afficher correctement à l'écran (idée : mettre une étiquette "##image##" dans le texte)
+- https://devcenter.heroku.com/articles/mean-apps-restful-api#connect-mongodb-and-the-app-server-using-the-node-js-driver
