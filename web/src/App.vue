@@ -1,72 +1,44 @@
 <template>
     <div id="app">
-      <div class="section">
-        <div class="container default">
-          <h1>Le Journal du Confiné</h1>
-          <div class="btn-list">
-            <div class="btn">Présentation</div>
-            <div class="btn">Articles</div>
-            <div class="btn">A propos</div>
-          </div>
-        </div>
-      </div>
-      <div class="section">
-        <div class="container intro">
-          <h2>Présentation</h2>
-          <p>Le Journal du Confiné est un blog que j'ai décidé de lancer pour stimuler ma productivité et partager mes activités de confinement. Le développement du blog est le premier défi dans cette quête de productivité. Je me permets donc de le mettre en ligne dès le début de la phase de développement. Le blog est donc actuellement en chantier et volontairement en ligne dans cet état, pour vous permettre de voir l'avancée. Donc, ne soyez pas trop sévères avec l'actuel visuel, il me permet de mieux peaufiner le design responsible grâces aux couleurs. </p>
-        </div>
-      </div>
-      <div class="section">
-        <div class="container article">
-          <h2>Articles</h2>
-          <div class="article-list">
-            <div class="article-card">
-              <h3>Lancement du blog</h3>
-            </div>
-            <div class="article-card">
-              <h3>Lancement du blog</h3>
-            </div>
-            <div class="article-card">
-              <h3>Lancement du blog</h3>
-            </div>
-            <div class="article-card">
-              <h3>Lancement du blog</h3>
-            </div>
-            <div class="article-card">
-              <h3>Lancement du blog</h3>
-            </div>
-            <div class="article-card">
-              <h3>Lancement du blog</h3>
-            </div>
-          </div>
-          <div class="btn article-btn">Voir tout</div>
-        </div>
-      </div>
-      <div class="section">
-        <div class="container about">
-          <h2>A propos</h2>
-          <p>sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdf</p>
-          <div class="link-list">
-            <div class="link">TW</div>
-            <div class="link">FB</div>
-            <div class="link">IG</div>
-          </div>
-        </div>
-      </div>
+      <router-view></router-view>
     </div>
 </template>
 
 <style lang="stylus">
 body
- margin 0
+  margin 0
+  background-color #F5DEB3
+  color black
 
-.section
+.navbar
+  position fixed
+  display flex
+  justify-content center
+  width 100%
+  height 100px
+
+.tab-list
+  display flex
+  justify-content space-between
+  align-items center
+  width 60%
+  background-color white
+  margin 0 15px
+  & > span
+    font-size 2em
+    &:hover, &:active
+      text-decoration underline
+
+.flex-center
   display flex
   justify-content center
   align-items center
+
+.section
+  @extend .flex-center
   width 100%
   height 100vh
-  background-color red
+  overflow-y hidden
 
 .btn-list
   grid-area btn
@@ -77,13 +49,10 @@ body
   align-items center
 
 .btn {
-  display flex
-  justify-content center
-  align-items center
+  @extend .flex-center
   width 30%
   height 80%
   font-size 2em
-  color white
   cursor pointer
 }
 
@@ -108,62 +77,7 @@ h2 {
   text-decoration underline
 }
 
-.container {
-  display grid
-  justify-items center
-  width 90%
-  height 90%
-  background-color blue
-}
-
-.container > p {
-  grid-area text
-  font-size 2em
-}
-
-.default {
-  align-items center
-  grid-template-areas:
-  '. . .'\
-  'title title title'\
-  'btn btn btn'\
-  '. . .'
-  grid-template-rows 0.20fr 2.5fr 1fr 0.5fr
-  grid-template-columns repeat(3, 1fr)
-  grid-gap 20px
-}
-
-.intro {
-  grid-template-areas:
-  '. . .'\
-  'title title title'\
-  'text text text'\
-  '. . .'
-  grid-template-rows 0.20fr 1fr 2.5fr 0.5fr
-  grid-template-columns repeat(3, 1fr)
-}
-
-.article {
-  grid-template-areas:
-  '. . .'\
-  'title title title'\
-  'list list list'\
-  '. btn .'\
-  '. . .'
-  grid-template-rows 0.20fr 1fr 3fr 1fr 0.5fr
-  grid-template-columns repeat(3, 1fr)
-}
-
-.about {
-  grid-template-areas:
-  '. . .'\
-  'title title title'\
-  'text text text'\
-  'link link link'\
-  '. . .'
-}
-
-.article-list {
+.article-list
   grid-area list
   display flex
   flex-wrap wrap
@@ -173,32 +87,24 @@ h2 {
   // grid-template-columns: repeat(5, 1fr);
   width 100%
   min-height 50%
-}
 
-.article-card {
-  display flex
-  justify-content center
-  align-items center
+.article-card
+  @extend .flex-center
   width 200px
   height 200px
-  background-color yellow
   margin 10px
   cursor pointer
-}
 
-.article-btn {
+.article-btn
   grid-area btn
-}
 
-.link-list {
+.link-list
   grid-area link
   display flex
   justify-content space-between
   align-items center
-}
+  width 100%
 
-.link {
-  background-color gray
+.link
   border-radius 50%
-}
 </style>
