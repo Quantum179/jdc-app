@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <div class="navbar">
+    <transition>
+    <div class="home-icon" key="1">JdC</div>
+    <div class="navbar" key="2">
       <!-- <p style="color:red">temporaire</p> -->
       <div class="tab-list">
           <span @click="section = 1">Présentation</span>
@@ -9,6 +11,7 @@
       </div>
       <!-- <p style="color:red">temporaire</p> -->
     </div>
+    </transition>
     <div class="section">
       <transition name="fade" mode="out-in">
         <div class="default" key="1" v-if="section === 0">
@@ -21,7 +24,7 @@
         </div>
         <div class="intro" key="2" v-if="section === 1">
           <h1>Présentation</h1>
-          <p>Le Journal du Confiné est un blog que j'ai décidé de lancer pour stimuler ma productivité et partager mes activités de confinement.<br><br>Le développement du blog est le premier des nombreux défis que j'aimerais relever. Je me permets donc de le mettre volontairement en ligne dès le début de la phase de développement, pendant qu'il est encore inachevé.<br><br>Cela permettra ainsi de voir son évolution au fil des mises à jour du code, donc ne soyez pas trop sévères si certaines fonctionnalités sont incomplètes ou certains visuels moches.<br>Il y aura bientôt un espace commentaire, pour ceux qui souhaitent participer au développement en faisant des retours utilisateurs.<br><br>A bientôt pour les premiers articles !<br></p>
+          <p>Le Journal du Confiné est un blog que j'ai décidé de lancer pour stimuler ma productivité et partager mes activités de confinement.<br><br>Le développement du blog est le premier des nombreux défis que j'aimerais relever. Je le mets donc volontairement en ligne dès le début de la phase de développement, pendant qu'il est encore inachevé.<br><br>Cela permettra ainsi de voir son évolution au fil des mises à jour du code, donc ne soyez pas trop sévères si certaines fonctionnalités sont incomplètes ou certains visuels moches.<br>Il y aura bientôt un espace commentaire, pour ceux qui souhaitent participer au développement en faisant des retours utilisateurs.<br><br>A bientôt pour les premiers articles !<br></p>
         </div>
         <div class="article" key="3" v-if="section === 2">
           <h1>Articles</h1>
@@ -49,16 +52,21 @@
         </div>
         <div class="about" key="4" v-if="section === 3">
           <h1>A propos</h1>
-          <p>sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdfblzefsfo ezipfjsdf eipfi sd spidfjp sfipdfjs spfjspdif spifjsipf pfsjpisdf sfpuqpfs psdfjpsifjp psdfjsipfj sdipfjezipf ipsefsipdf</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ante tortor, fringilla nec vestibulum et, consequat sagittis ante. Donec sodales orci quis rutrum ornare. Nulla in finibus felis. Donec eros turpis, tempus ac velit non, tristique dignissim quam. Proin feugiat tortor cursus nibh dapibus lobortis. Etiam quis tincidunt tortor, quis efficitur purus. Suspendisse potenti. Sed at mi vitae sapien blandit convallis non at elit.</p>
           <div class="link-list">
-            <div class="link">Twitter</div>
-            <div class="link">Facebook</div>
-            <div class="link">Instagram</div>
+            <div class="link">GitHub</div>
+            <div class="link">LinkedIn</div>
           </div>
         </div>
       </transition>
     </div>
   </div>
+  <!-- <img class="flexible"
+     src="http://robgravelle.com/news/@/Storage/_files/91/file.jpg"
+     alt="Rob G"
+     data-image-small="https://lh6.googleusercontent.com/-TsXKfdqFFYE/AAAAAAAAAAI/AAAAAAAAABQ/Y3JQpBQdLSo/photo.jpg?sz=328"
+     data-image-medium="http://www.robgravelle.com/@/Photos/_entries/28/photo-full.jpg"
+     data-image-large="http://robgravelle.com/news/@/Storage/_files/91/file.jpg" /> -->
 </template>
 
 <script>
@@ -123,8 +131,11 @@ export default {
 <style lang="stylus">
 @import "../style/app"
 
-.navbar
+.home-icon, .navbar
   position fixed
+  @extend .flex-center
+
+.navbar
   display flex
   justify-content center
   width 100%
@@ -148,11 +159,10 @@ export default {
 .default
   align-items center
   grid-template-areas:
-  '. . .'\
   'title title title'\
   '. btn .'\
   '. . .'
-  grid-template-rows 0.25fr 1.5fr 3fr 0.25fr
+  grid-template-rows 1fr 3fr 0.5fr
   grid-template-columns 1fr 2fr 1fr
   grid-gap 10px
 
@@ -200,8 +210,8 @@ export default {
   cursor pointer
 
 .btn:hover
-  background-color rgba(255, 255, 255, 0.6)
-  border 2px solid white
+  background-color rgba(255, 255, 255, 0.65)
+  border 2px solid black
   border-radius 5px
   text-decoration underline
 
@@ -219,8 +229,8 @@ export default {
 
 .article-card
   @extend .flex-center
-  width 120px
-  height 120px
+  width 80%
+  height 50vh
   margin 10px
   cursor pointer
   background-color rgba(255, 255, 255, 0.7)
